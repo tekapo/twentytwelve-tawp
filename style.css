@@ -1,0 +1,49 @@
+/*
+Theme Name: tawp with 2012
+Theme URI: http://tekapo.com/
+Author: Tai
+Author URI: http://tekapo.com/
+Description: For tawp
+Template: twentytwelve
+Version: 1.0
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+*/
+
+/* import toolbox css */
+@import url('../twentytwelve/style.css');
+
+h3.sd-title {
+	display: none;
+}
+
+div.sharedaddy .sd-social .sd-content {
+	float: none;
+}
+
+.entry-content h2 {
+	font-weight: normal;
+}
+
+#add_ad {
+	margin: 2rem auto;
+	width: 468px;
+}
+
+.how-old {
+	border-radius: 10px;
+	border: solid 1px #ccc;
+	padding: 1rem;
+	margin: 1rem 0;
+	background-color: #fef4f4; /* 和色: さくらいろ http://www.colordic.org/colorsample/2281.html  */
+}
+
+#secondary .widget-title {
+	font-size: 1.2rem;
+}
+
+#secondary ul {
+	list-style-type: disc;
+	padding-left: 1rem;
+}
