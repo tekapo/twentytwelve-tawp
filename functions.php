@@ -56,11 +56,8 @@ function how_old_the_post() {
 		$how_old_text	 = <<<EOL
 <div class="how-old">注意!! この投稿は{$diff_year}年{$m}くらい前に公開したものです。そのため最新版の WordPress では正常に動作しないかもしれないので、ご注意ください。</div>
 EOL;
-
-//		$content = $how_old_text . $content;
 	}
 	echo $how_old_text;
 }
 
-//add_filter( 'the_content', 'how_old_the_post' );
 add_action( 'how_old_the_post', 'how_old_the_post' );
