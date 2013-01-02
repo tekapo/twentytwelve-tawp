@@ -47,3 +47,13 @@ div.sharedaddy .sd-social .sd-content {
 	list-style-type: disc;
 	padding-left: 1rem;
 }
+
+.home .site-content article {
+	border: none;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.home .entry-header {
+	margin-bottom: 0;
+}

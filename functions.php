@@ -6,9 +6,9 @@
  */
 function clip_the_first_paragraph_from_the_exerpt() {
 
-	$string	 = get_the_excerpt();
-	$target	 = '。';
-	$target_plus_1 = mb_strpos( $string, $target )+1;
+	$string			 = get_the_excerpt();
+	$target			 = '。';
+	$target_plus_1	 = mb_strpos( $string, $target ) + 1;
 
 	echo mb_substr( $string, 0, $target_plus_1 );
 }
@@ -66,3 +66,31 @@ EOL;
 }
 
 add_action( 'how_old_the_post', 'how_old_the_post' );
+
+/**
+ * お気に入り (Favorited) のプラグインをリスト表示させる。
+ *
+ */
+function show_favorited_plugins( $who ) {
+	/** If plugins_api isn't available, load the file that holds the function */
+	if ( !function_exists( 'plugins_api' ) ) {
+		require_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
+	}
+	/** Prepare our query */
+	$api = plugins_api( 'query_plugins', array(
+		'user' => $who
+			)
+	);
+
+	/** Display the results */
+	if ( is_wp_error( $api ) ) {
+		echo '<pre>' . print_r( $api->get_error_message(), true ) . '</pre>';
+	} else {
+		/** Display the name of each favorited plugin */
+		echo '<ul id="favorited-plugins">';
+		foreach ( $api->plugins as $plugin ) {
+			echo '<li><a target="_blank" href="http://wordpress.org/extend/plugins/' . esc_html( $plugin->slug ) . '/">' . esc_html( $plugin->name ) . '</a></li>';
+		}
+		echo '</ul>';
+	}
+}
