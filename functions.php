@@ -1,12 +1,17 @@
 <?php
 
-// remove p tags from excerpt for the top page.
-function remove_p_tag( $string ) {
-	$removed = strip_tags( $string );
-	return $removed;
-}
+/**
+ * 抜粋から最初の「句点」までを抜き出す。
+ *
+ */
+function clip_the_first_paragraph_from_the_exerpt() {
 
-//add_filter( 'the_excerpt', 'remove_p_tag' );
+	$string	 = get_the_excerpt();
+	$target	 = '。';
+	$target_plus_1 = mb_strpos( $string, $target )+1;
+
+	echo mb_substr( $string, 0, $target_plus_1 );
+}
 
 function add_ad_content( $a ) {
 	$b = <<<EOT
